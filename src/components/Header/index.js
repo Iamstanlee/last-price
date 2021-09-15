@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group"
 
 import * as S from "./styles"
 const SvgIcon = lazy(() => import("../../common/SvgIcon"))
+const PngIcon = lazy(() => import("../../common/PngIcon"))
 
 const Header = () => {
   const [isNavVisible] = useState(false)
@@ -21,10 +22,14 @@ const Header = () => {
   const MenuItem = () => {
     return (
       <Fragment>
-        <S.CustomNavLinkSmall onClick={() => {}}>
+        <S.CustomNavLinkSmall
+          onClick={() => {
+            // check if login
+          }}
+        >
           <S.Span>Post a Deal</S.Span>
         </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall onClick={() => {}}>
+        <S.CustomNavLinkSmall to="/login">
           <SvgIcon src="user.svg" height="16px" />
           <S.Span padding="0 4px">login</S.Span>
         </S.CustomNavLinkSmall>
@@ -36,9 +41,11 @@ const Header = () => {
     <S.Header>
       <S.Container>
         <Row type="flex" justify="space-between" gutter={20}>
-          <S.LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" />
-          </S.LogoContainer>
+          <S.LogoNavLink to="/">
+            <S.LogoContainer aria-label="homepage">
+              <PngIcon src="logo.png" />
+            </S.LogoContainer>
+          </S.LogoNavLink>
           <S.NotHidden>
             <MenuItem />
           </S.NotHidden>

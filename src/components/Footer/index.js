@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade"
 import * as S from "./styles"
 
 const SvgIcon = lazy(() => import("../../common/SvgIcon"))
+const PngIcon = lazy(() => import("../../common/PngIcon"))
 const Container = lazy(() => import("../../common/Container"))
 
 const Footer = () => {
@@ -66,12 +67,7 @@ const Footer = () => {
             >
               <S.NavLink to="/">
                 <S.LogoContainer>
-                  <SvgIcon
-                    src="logo.svg"
-                    aria-label="homepage"
-                    width="101px"
-                    height="64px"
-                  />
+                  <PngIcon src="logo.png" aria-label="homepage" />
                 </S.LogoContainer>
               </S.NavLink>
               <S.FooterContainer>

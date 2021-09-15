@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const HeroContainer = styled.section`
   position: relative;
+  margin-top: 44px;
   padding: 1rem 0 5rem;
 
   @media only screen and (max-width: 768px) {
     padding: 2.5rem 0 3rem;
-    
   }
 `;
 

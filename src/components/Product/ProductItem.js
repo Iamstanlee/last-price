@@ -13,7 +13,7 @@ const ProductItem = () => {
         <S.CardFooter>
           <S.CardPriceContainer>
             <S.CardNormalPrice>$164.99</S.CardNormalPrice>
-            <S.CardSalesPrice>$104.99</S.CardSalesPrice>
+            <S.CardSalesPrice>$99.99</S.CardSalesPrice>
           </S.CardPriceContainer>
           <S.CardButton>Buy Item</S.CardButton>
         </S.CardFooter>

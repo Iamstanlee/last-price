@@ -18,17 +18,18 @@ export const CardFooter = styled.div`
 `
 export const CardPriceContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
   margin-bottom: 1rem;
-  align-items: start;
 `
 export const CardNormalPrice = styled.p`
   color: #ee1515;
-  font-size: 1.075rem;
+  font-size: 1.025rem;
   font-weight: 700;
   margin: 0;
   text-decoration: line-through;
+  margin-right: 8px;
 `
 export const CardSalesPrice = styled.p`
   color: #465157;

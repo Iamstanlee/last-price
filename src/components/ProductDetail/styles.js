@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5rem 0;
 `
 export const DealImageContainer = styled.div`
   padding: 1rem;

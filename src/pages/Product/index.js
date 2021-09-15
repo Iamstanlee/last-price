@@ -4,7 +4,7 @@ import Footer from "../../components/Footer"
 import React from "react"
 import ProductDetail from "../../components/ProductDetail"
 
-function ProductPage() {
+function Product() {
   return (
     <div>
       <Header />
@@ -14,4 +14,4 @@ function ProductPage() {
   )
 }
 
-export default ProductPage
+export default Product

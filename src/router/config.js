@@ -4,14 +4,11 @@ const routes = [
     exact: true,
     component: "Home",
   },
-//   {
-//     path: ["/product"],
-//     component: "ProductPage",
-//   },
-    {
-      path: ["/deal/:id"],
-      component: "ProductPage",
-    },
+
+  {
+    path: ["/deal/:id"],
+    component: "Product",
+  },
 ]
 
 export default routes

@@ -1,12 +1,13 @@
-import { Row, Col } from "antd"
+import { Col } from "antd"
+import ProductList from "./ProductList"
 import * as S from "./styles"
 
 const Product = ({ title, id }) => {
   return (
     <S.ProductContainer id={id}>
-      <Col lg={14} md={14} sm={14} xs={24}>
+      <Col lg={20} md={24} sm={24} xs={24}>
         <h6>{title || "Hot Deals 🔥"}</h6>
-        {/* product listing here */}
+        <ProductList />
       </Col>
     </S.ProductContainer>
   )

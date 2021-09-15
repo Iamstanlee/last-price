@@ -15,8 +15,9 @@ const Home = () => {
           content="Everyday is black friday on last price. Buy items almost for free!, Seriously."
           button="Buy Now"
           icon="hero.png"
+          id="hero"
         />
-        <Product />
+        <Product id="product" />
       </Container>
       <Footer />
     </>

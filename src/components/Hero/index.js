@@ -7,10 +7,12 @@ import * as S from "./styles"
 
 const Hero = ({ title, content, button, icon }) => {
   const scrollTo = (id) => {
-    const element = document.getElementById(id || "/")
-    element.scrollIntoView({
-      behavior: "smooth",
-    })
+    if (id !== null) {
+      const element = document.getElementById(id)
+      element.scrollIntoView({
+        behavior: "smooth",
+      })
+    }
   }
   return (
     <S.HeroContainer>
@@ -33,7 +35,7 @@ const Hero = ({ title, content, button, icon }) => {
                   <Button
                     name="submit"
                     type="submit"
-                    onClick={() => scrollTo("")}
+                    onClick={() => scrollTo("product")}
                   >
                     {button}
                   </Button>

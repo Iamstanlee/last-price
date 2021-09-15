@@ -1,11 +1,20 @@
 import { Row } from "antd"
 import ProductItem from "./ProductItem"
+import product from "../../data/product.json"
 
 const ProductList = () => {
   return (
     <div className="site-card-wrapper">
       <Row gutter={[40, 32]}>
-        <ProductItem />
+        {product.map((item, index) => (
+          <ProductItem
+            title={item.title}
+            nPrice={item.normalPrice}
+            sPrice={item.salesPrice}
+            img={item.image}
+            key={index}
+          />
+        ))}
       </Row>
     </div>
   )

@@ -1,0 +1,12 @@
+{
+	"name": "functions",
+	"version": "1.0.0",
+	"description": "lastprice cloud functions",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {}
+}

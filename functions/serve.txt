@@ -1,0 +1,2 @@
+# start emulators
+firebase emulators:start --import=./cached --export-on-exit

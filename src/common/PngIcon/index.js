@@ -3,7 +3,7 @@ const PngIcon = ({ src, width, height, onClick }) => (
     src={`/img/png/${src}`}
     alt={src}
     width={width || "100%"}
-    height={height}
+    height={height || "100%"}
     onClick={onClick}
   />
 )

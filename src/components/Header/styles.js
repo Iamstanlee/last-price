@@ -6,8 +6,9 @@ export const Header = styled.header`
   padding: 1rem 0.5rem;
 `
 
-export const LogoContainer = styled(Link)`
+export const LogoContainer = styled.div`
   display: flex;
+  position: relative;
 `
 export const NormalNavLink = styled(Link)`
   width: 180px;
@@ -32,9 +33,20 @@ export const Container = styled.div`
   margin-left: auto;
 `
 
-export const NavLink = styled.div`
+export const NavLink = styled(Link)`
   display: inline-block;
   text-align: center;
+`
+export const LogoNavLink = styled(Link)`
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.625rem;
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #000;
+  }
 `
 
 export const CustomNavLink = styled.div`

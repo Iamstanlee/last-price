@@ -12,7 +12,7 @@ const Home = () => {
       <Container>
         <Hero
           title="Best deals just for you!"
-          content="Everyday is black friday on last price. Buy items almost for free!, Seriously."
+          content="Everyday is black friday on lastprice. Buy items almost for free!, Seriously."
           button="Buy Now"
           icon="hero.png"
           id="hero"

@@ -123,7 +123,9 @@ const Styles = createGlobalStyle`
     .ant-notification-notice-icon-success {
         color: rgb(255,130,92);
     }
-
+    .margin-auto{
+        margin: 0 auto;
+    }
     // img{
     //     @media only screen and (max-width: 768px) {
     //         width: 100%!important;

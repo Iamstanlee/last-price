@@ -13,7 +13,7 @@ const ProductDetail = () => {
       </S.DealImageContainer>
       <S.DetailsContainer>
         <S.Title>{location.state.title}</S.Title>
-        {/* <S.Desc>{location.state.desc}</S.Desc> */}
+        <S.Desc>{location.state.desc}</S.Desc>
         <S.PriceContainer>
           <S.NormalPrice>{location.state.nPrice}</S.NormalPrice>
           <S.SalesPrice>{location.state.sPrice}</S.SalesPrice>

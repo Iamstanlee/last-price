@@ -2,6 +2,7 @@ import Home from "../pages/Home"
 import Product from "../pages/Product"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
+import Dashboard from "../pages/Dashboard"
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     path: ["/register"],
     component: Register,
+  },
+  {
+    path: ["/dashboard"],
+    component: Dashboard,
   },
 ]
 

@@ -1,11 +1,13 @@
 import { useState } from "react"
-import { notification } from "antd"
-import { auth } from "../../firebase"
+import { auth, functions, functionIds } from "../../firebase"
+import { useHistory } from "react-router-dom"
+import { notify, uuid } from "../../utils/helpers"
 
 const useLoginForm = (validate) => {
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
   const handleChange = (event) => {
     event.persist()
@@ -21,22 +23,32 @@ const useLoginForm = (validate) => {
     if (Object.keys(validate(values)).length === 0) {
       setErrors({})
       setLoading(true)
+      const { email, password, fullname } = values
       auth
-        .createUserWithEmailAndPassword(values.email, values.password)
+        .createUserWithEmailAndPassword(email, password)
         .then((_) => {
-          notification["success"]({
-            message: "Success",
-            description: "Registration Successful",
-          })
-          setLoading(false)
-          setValues({})
-          //   navigate to dashboard
+          const callable = functions.httpsCallable(functionIds.createAccount)
+          const user = {
+            email: email,
+            fullname: fullname,
+            user_id: _.user.uid,
+            public_id: uuid(),
+          }
+          return callable(user)
+        })
+        .then((resp) => {
+          const _ = resp.data
+          if (_.success) {
+            notify("Registration Successful", "success")
+            setLoading(false)
+            setValues({})
+            history.push(`/dashboard`)
+          } else {
+            throw _
+          }
         })
         .catch((e) => {
-          notification["error"]({
-            message: "Error",
-            description: e.message || "",
-          })
+          notify(e.message)
           setLoading(false)
         })
     } else {

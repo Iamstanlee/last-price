@@ -4,6 +4,7 @@ const routes = [
     exact: true,
     component: "Home",
   },
+
   {
     path: ["/deal/:id"],
     component: "Product",

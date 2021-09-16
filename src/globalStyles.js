@@ -126,11 +126,17 @@ const Styles = createGlobalStyle`
     .margin-auto{
         margin: 0 auto;
     }
-    // img{
-    //     @media only screen and (max-width: 768px) {
-    //         width: 100%!important;
-    //       }
-    // }    
+   
+   .ant-card-meta-title {
+      font-weight: 900;
+   } 
+   .ant-card{
+      width: 100%;  
+   }
+   .ant-card-cover img{
+      height: 240px;
+      object-fit: cover;
+   }
 `
 
 export default Styles

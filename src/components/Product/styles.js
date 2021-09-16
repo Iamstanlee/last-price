@@ -50,3 +50,9 @@ export const CardButton = styled.button`
   width: 100%;
   cursor: pointer;
 `
+
+export const Span = styled.span`
+  text-align: center;
+  font-weight: bold;
+  padding-top: 10px;
+`

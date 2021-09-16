@@ -2,13 +2,13 @@ import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
 import React from "react"
-import ProductInfo from "../../components/ProductInfo"
+import Checkout from "../../components/Checkout"
 
 function Product() {
   return (
     <div>
       <Header />
-      <ProductInfo />
+      <Checkout />
       <Footer />
     </div>
   )

@@ -1,17 +1,15 @@
-import { withTranslation } from "react-i18next"
-
 import * as S from "./styles"
 
-const Input = ({ id, name,type, placeholder, onChange, value, t }) => (
+const Input = ({ id, name, type, placeholder, onChange, value }) => (
   <S.Container>
     {id && (
       <S.Label>
-        <label htmlFor={name}>{t(id)}</label>
+        <label htmlFor={name}>{id}</label>
       </S.Label>
     )}
     <S.Input
       spellcheck="false"
-      placeholder={t(placeholder)}
+      placeholder={placeholder}
       name={name}
       id={name}
       type={type}
@@ -21,4 +19,4 @@ const Input = ({ id, name,type, placeholder, onChange, value, t }) => (
   </S.Container>
 )
 
-export default withTranslation()(Input)
+export default Input

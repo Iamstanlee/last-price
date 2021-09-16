@@ -6,7 +6,7 @@ const routes = [
   },
 
   {
-    path: ["/deal/:id"],
+    path: ["/deals/:id"],
     component: "Product",
   },
   {

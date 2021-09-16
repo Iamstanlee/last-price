@@ -21,10 +21,11 @@ export const DetailsContainer = styled.div`
   max-width: 450px;
 `
 export const Title = styled.h4`
-  font-size: 1.075rem;
+  font-size: 1.175rem;
+  line-height: 1.725rem;
 `
 export const Desc = styled.p`
-  font-size: 1.075rem;
+  font-size: 0.91rem;
 `
 export const PriceContainer = styled.div`
   display: flex;

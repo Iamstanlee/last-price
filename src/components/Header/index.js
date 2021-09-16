@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <S.Header>
       <S.Container>
-        <Row type="flex" justify="space-between" gutter={20}>
+        <Row type="flex" justify="space-between" gutter={20} align="middle">
           <S.LogoNavLink to="/">
             <S.LogoContainer aria-label="homepage">
               <PngIcon src="logo.png" />

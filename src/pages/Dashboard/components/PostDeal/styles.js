@@ -11,6 +11,7 @@ export const FormGroup = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1rem;
   @media only screen and (max-width: 1045px) {
     max-width: 100%;
     flex-direction: column;

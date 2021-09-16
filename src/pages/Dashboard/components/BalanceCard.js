@@ -7,11 +7,12 @@ const { Meta } = Card
 
 function BalanceCard({ balance }) {
   return (
-    <div>
-      <Card style={{ width: 300 }} actions={[<Button>Withdraw</Button>]}>
-        <Meta title={formatAmount(balance)} description="balance" />
-      </Card>
-    </div>
+    <Card
+      style={{ width: 300, margin: "0 auto" }}
+      actions={[<Button>Withdraw</Button>]}
+    >
+      <Meta title={formatAmount(balance)} description="balance" />
+    </Card>
   )
 }
 

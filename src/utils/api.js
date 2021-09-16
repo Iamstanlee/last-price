@@ -1,3 +1,5 @@
+import { storage } from "../firebase"
+
 const sendHttpRequest = async (method, endpoint, data, headers) => {
   headers["Content-Type"] = "application/json"
   try {
@@ -19,9 +21,20 @@ const sendHttpRequest = async (method, endpoint, data, headers) => {
   }
 }
 
-const get = async (endpoint, headers) =>
-  await sendHttpRequest("GET", endpoint, null, headers)
-const post = async (endpoint, data, headers) =>
-  await sendHttpRequest("POST", endpoint, data, headers)
+export const uploadFile = async (file, folder, id) => {
+  try {
+    let filename = id ? `${folder}/${id}` : `${folder}/${file.name}`
+    filename = filename.replace(/\s/g, "").trim()
+    let fileReference = storage.ref().child(filename)
+    await fileReference.put(file)
+    let url = await fileReference.getDownloadURL()
+    return url
+  } catch (e) {
+    return { success: false, message: e.toString() }
+  }
+}
 
-export { get, post }
+export const get = async (endpoint, headers) =>
+  await sendHttpRequest("GET", endpoint, null, headers)
+export const post = async (endpoint, data, headers) =>
+  await sendHttpRequest("POST", endpoint, data, headers)

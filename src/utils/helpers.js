@@ -39,9 +39,9 @@ export function getReference() {
   return `${date.toString().substring(0, 9)}`
 }
 
-export const getLastPathname = (pathname) => {
-  const pathList = pathname.split("/")
-  return pathList[pathList.length - 1]
+export const getEndPath = (pathname) => {
+  const list = pathname.split("/")
+  return list[list.length - 1]
 }
 
 export const getSlug = (payload) => {
@@ -51,6 +51,12 @@ export const getSlug = (payload) => {
     return ls && ls.join("-")
   }
   return null
+}
+
+export const getLastPrice = (amount, percentage) => {
+  if (!percentage || percentage === 0 || percentage > 100) return amount
+  const lastprice = amount - (amount * percentage) / 100
+  return isNaN(lastprice) ? amount : lastprice
 }
 
 export const getFileSize = (bytes) => {

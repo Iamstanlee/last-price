@@ -1,27 +1,26 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
-export const Card = styled.div`
-  width: 100%;
-  margin: 12px;
-  padding: 10px;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 1px 5px #5e5d5d2b;
-  }
-  @media (min-width: 420px) {
-   
-  }
-
-  
+export const DashboardContainer = styled.div`
+  padding: 5rem 0;
 `
-export const CardTitle = styled.p`
-  color: gray;
+export const NavLink = styled(Link)`
   font-size: 14px;
-  margin-bottom: 0;
 `
 
-export const CardData = styled.p`
-  color: #242424;
-  font-size: 2rem;
-  margin-bottom: 0;
+export const Span = styled.span`
+  display: block;
+  color: ${(props) => props.color};
+  padding: ${(props) => props.padding || "4px 0.675rem"};
+  margin-bottom: 0.2rem;
+`
+
+export const ButtonContainer = styled.div`
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @media only screen and (min-width: 1046px) {
+    width: 70%;
+  }
 `

@@ -1,21 +1,26 @@
+import Home from "../pages/Home"
+import Product from "../pages/Product"
+import Login from "../pages/Login"
+import Register from "../pages/Register"
+
 const routes = [
   {
     path: ["/", "/home"],
     exact: true,
-    component: "Home",
+    component: Home,
   },
 
   {
     path: ["/deals/:id"],
-    component: "Product",
+    component: Product,
   },
   {
     path: ["/login"],
-    component: "Login",
+    component: Login,
   },
   {
     path: ["/register"],
-    component: "Register",
+    component: Register,
   },
 ]
 

@@ -3,6 +3,7 @@ import * as S from "./styles"
 import BalanceCard from "./BalanceCard"
 import SvgIcon from "../../../common/SvgIcon"
 import { useUserContext } from "../../../context/UserContext"
+import ProductList from "./ProductList"
 
 const Dashboard = () => {
   const {
@@ -36,8 +37,9 @@ const Dashboard = () => {
       </Row>
 
       <S.ProductContainer>
-        <SvgIcon src="activity.svg" width="100px" height="100px" />
-        <S.Span>&#183; No product up for sale &#183;</S.Span>
+        {/* <SvgIcon src="activity.svg" width="100px" height="100px" />
+        <S.Span>&#183; No product up for sale &#183;</S.Span> */}
+        <ProductList />
       </S.ProductContainer>
       {/* product listing */}
     </S.DashboardContainer>

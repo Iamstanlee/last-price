@@ -11,6 +11,9 @@ export const ProductContainer = styled.section`
     padding: 4rem 0 4rem;
   }
 `
+export const ProductList = styled.section`
+  margin: 3.5rem 0;
+`
 
 export const CardFooter = styled.div`
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);

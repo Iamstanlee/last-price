@@ -7,7 +7,9 @@ const Product = ({ title, id }) => {
     <S.ProductContainer id={id}>
       <Col lg={20} md={24} sm={24} xs={24}>
         <h6>{title || "Hot Deals 🔥"}</h6>
-        <ProductList />
+        <S.ProductList>
+          <ProductList />
+        </S.ProductList>
       </Col>
     </S.ProductContainer>
   )

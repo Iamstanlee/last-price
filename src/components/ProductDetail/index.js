@@ -14,7 +14,7 @@ const ProductDetail = () => {
           <S.NormalPrice>$164.99</S.NormalPrice>
           <S.SalesPrice>$104.99</S.SalesPrice>
         </S.PriceContainer>
-        <S.Button>Buy Item</S.Button>
+        <S.Button>Buy Now</S.Button>
       </S.DetailsContainer>
     </S.Container>
   )

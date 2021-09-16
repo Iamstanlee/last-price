@@ -1,9 +1,16 @@
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
 import routes from "./config"
 import GlobalStyles from "../globalStyles"
+import { getUser, useUserContext } from "../context/UserContext"
 
 const Router = () => {
+  const { updateUserContext } = useUserContext()
+  useEffect(() => {
+    getUser(updateUserContext)
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <Suspense fallback={null}>
       <GlobalStyles />

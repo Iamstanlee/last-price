@@ -102,7 +102,13 @@ const Styles = createGlobalStyle`
         color: gray;
 
     }
-
+   .icon{
+      width:25px;
+      height: 25px;
+   }
+   .mt-3{
+      margin-top: 3rem;
+   }
     .about-block-image svg {
         text-align: center;
     }

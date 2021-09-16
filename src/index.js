@@ -4,10 +4,16 @@ import "antd/dist/antd.css"
 
 import Router from "./router"
 import * as serviceWorker from "./serviceWorker"
+import { UserProvider } from "./context/UserContext"
+import { ProductProvider } from "./context/ProductContext"
 
 const App = () => (
   <BrowserRouter>
-    <Router />
+    <UserProvider>
+      <ProductProvider>
+        <Router />
+      </ProductProvider>
+    </UserProvider>
   </BrowserRouter>
 )
 

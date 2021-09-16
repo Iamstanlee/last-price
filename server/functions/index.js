@@ -1,9 +1,11 @@
-const { createAccount } = require("./src/api/user")
-const { GetWalletProvider } = require("./src/api/getwallet")
+const { createAccount, getWallet } = require("./src/api/user")
+const { initCheckout } = require("./src/api/checkout")
+const { httpWebhook } = require("./src/api/webhook")
 
 exports.createAccount = createAccount
+exports.getWallet = getWallet
 
-/**
- * WALLET
- */
-const walletProvider = new GetWalletProvider()
+exports.initCheckout = initCheckout
+// exports.completeCheckout = completeCheckout
+
+exports.webhook = httpWebhook

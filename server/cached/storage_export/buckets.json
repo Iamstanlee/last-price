@@ -2,6 +2,9 @@
   "buckets": [
     {
       "id": "default-bucket"
+    },
+    {
+      "id": "last-price-a5a52.appspot.com"
     }
   ]
 }

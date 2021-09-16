@@ -5,6 +5,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5rem 0;
+  @media screen and (max-width: 616px) {
+    flex-direction: column;
+  }
 `
 export const DealImageContainer = styled.div`
   padding: 1rem;
@@ -15,12 +18,14 @@ export const DealImage = styled.img`
 `
 export const DetailsContainer = styled.div`
   padding: 1rem;
+  max-width: 450px;
 `
 export const Title = styled.h4`
-  font-size: 1.075rem;
+  font-size: 1.175rem;
+  line-height: 1.725rem;
 `
 export const Desc = styled.p`
-  font-size: 1.075rem;
+  font-size: 0.91rem;
 `
 export const PriceContainer = styled.div`
   display: flex;

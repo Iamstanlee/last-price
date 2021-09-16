@@ -1,28 +1,32 @@
 import * as S from "./styles"
 import { Card, Col } from "antd"
 import { useHistory } from "react-router-dom"
-import { getSlug } from "../../utils/helpers"
+import { formatAmount, getLastPrice } from "../../utils/helpers"
 const { Meta } = Card
 
-const ProductItem = ({ title,desc, nPrice, sPrice, img }) => {
-  const h = useHistory()
+const ProductItem = ({ product }) => {
+  const history = useHistory()
   return (
     <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 8 }}>
-      <Card cover={<img alt={title} src={img} />}>
-        <Meta title={title} />
+      <Card
+        cover={<img alt={product.product_name} src={product.product_image} />}
+      >
+        <Meta title={product.product_name} />
         <S.CardFooter>
           <S.CardPriceContainer>
-            <S.CardNormalPrice>{nPrice}</S.CardNormalPrice>
-            <S.CardSalesPrice>{sPrice}</S.CardSalesPrice>
+            <S.CardNormalPrice>
+              {formatAmount(product.product_price)}
+            </S.CardNormalPrice>
+            <S.CardSalesPrice>
+              {formatAmount(
+                getLastPrice(product.product_price, product.percentage_off)
+              )}
+            </S.CardSalesPrice>
           </S.CardPriceContainer>
           <S.CardButton
             onClick={(e) =>
-              h.push(`deals/${getSlug(title)}`, {
-                title,
-                desc,
-                nPrice,
-                sPrice,
-                img,
+              history.push(`deals?pid=${product.product_id}`, {
+                product,
               })
             }
           >

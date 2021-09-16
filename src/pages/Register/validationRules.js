@@ -9,7 +9,7 @@ export default function validate(values) {
   }
   if (!values.email) {
     errors.email = "email address is required"
-  } else if (validateEmail(values.email)) {
+  } else if (!validateEmail(values.email)) {
     errors.email = "Invalid email address"
   }
 

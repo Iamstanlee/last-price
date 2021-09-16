@@ -2,6 +2,8 @@ import Home from "../pages/Home"
 import Product from "../pages/Product"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
+import Dashboard from "../pages/Dashboard"
+import Checkout from "../pages/Checkout"
 
 const routes = [
   {
@@ -11,8 +13,12 @@ const routes = [
   },
 
   {
-    path: ["/deals/:id"],
+    path: ["/deals"],
     component: Product,
+  },
+  {
+    path: ["/checkout"],
+    component: Checkout,
   },
   {
     path: ["/login"],
@@ -21,6 +27,10 @@ const routes = [
   {
     path: ["/register"],
     component: Register,
+  },
+  {
+    path: ["/dashboard"],
+    component: Dashboard,
   },
 ]
 

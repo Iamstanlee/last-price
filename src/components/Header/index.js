@@ -31,9 +31,9 @@ const Header = () => {
         <S.CustomNavLinkSmall
           onClick={() => {
             if (user) {
-              history.push("/post-a-deal")
+              history.push("/dashboard/post-a-deal")
             } else {
-              history.push("/login?next=post-a-deal&")
+              history.push("/login?next=/dashboard/post-a-deal&from=/login")
             }
           }}
         >

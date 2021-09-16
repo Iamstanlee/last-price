@@ -8,6 +8,7 @@ const Router = () => {
   const { updateUserContext } = useUserContext()
   useEffect(() => {
     getUser(updateUserContext)
+    // eslint-disable-next-line
   }, [])
 
   return (

@@ -1,16 +1,34 @@
-import { Col } from "antd"
-import * as S from "./styles"
-import BalanceCard from "./components/BalanceCard"
+import { Suspense, useEffect } from "react"
+import { Switch, Route } from "react-router-dom"
+import routes from "./config"
+import { getUser, useUserContext } from "../../context/UserContext"
 
-const Dashboard = (props) => {
+const DashboardRouter = () => {
+  const {
+    user: { user },
+    updateUserContext,
+  } = useUserContext()
+  useEffect(() => {
+    if (!user) getUser(updateUserContext)
+    // eslint-disable-next-line
+  }, [])
+
   return (
-    <S.DashboardContainer>
-      <Col lg={10} md={12} sm={24} xs={24} className="margin-auto"></Col>
-      <h6>Enye Hack Dashboard</h6>
-      <BalanceCard balance={200000} />
-      {/* product listing */}
-    </S.DashboardContainer>
+    <Suspense fallback={null}>
+      <Switch>
+        {routes.map((routeItem) => {
+          return (
+            <Route
+              key={routeItem.component}
+              path={routeItem.path}
+              exact={routeItem.exact}
+              component={routeItem.component}
+            />
+          )
+        })}
+      </Switch>
+    </Suspense>
   )
 }
 
-export default Dashboard
+export default DashboardRouter

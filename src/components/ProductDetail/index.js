@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom"
 
 const ProductDetail = () => {
   const location = useLocation()
-  const product = location.state
-  console.log(location.state);
+  //   const product = location.state
+  //   console.log(location.state);
   return (
     <S.Container>
       <S.DealImageContainer>

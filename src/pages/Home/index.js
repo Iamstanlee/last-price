@@ -17,7 +17,7 @@ const Home = () => {
           icon="hero.png"
           id="hero"
         />
-        <Product id="product" />
+        <Product id="product" title="Hot Deals 🔥" />
       </Container>
       <Footer />
     </>

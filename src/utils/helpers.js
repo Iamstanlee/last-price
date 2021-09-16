@@ -73,7 +73,7 @@ export const koboToNgn = (kobo) => kobo / 100
 export const ngnToKobo = (ngn) => ngn * 100
 
 export function formatAmount(value) {
-  return `NGN ${new Intl.NumberFormat().format(koboToNgn(value))}`
+  return `₦${new Intl.NumberFormat().format(koboToNgn(value))}`
 }
 
 export const notify = (msg, state = "error") => {

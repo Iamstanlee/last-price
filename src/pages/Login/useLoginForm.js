@@ -1,11 +1,13 @@
 import { useState } from "react"
-import { notification } from "antd"
 import { auth } from "../../firebase"
+import { useHistory } from "react-router-dom"
+import { notify } from "../../utils/helpers"
 
 const useLoginForm = (validate) => {
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
   const handleChange = (event) => {
     event.persist()
@@ -22,17 +24,14 @@ const useLoginForm = (validate) => {
       setErrors({})
       setLoading(true)
       auth
-        .signInWithEmailAndPassword(values.password, values.password)
+        .signInWithEmailAndPassword(values.email, values.password)
         .then((_) => {
           setLoading(false)
           setValues({})
-          //   navigate to dashboard
+          history.push("/dashboard")
         })
         .catch((e) => {
-          notification["error"]({
-            message: "Error",
-            description: e.message || "",
-          })
+          notify(e.message)
           setLoading(false)
         })
     } else {

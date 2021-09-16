@@ -1,13 +1,16 @@
 import React from "react"
-import * as S from "./styles"
+import { Card } from "antd"
+import { formatAmount } from "../../../utils/helpers"
+import { Button } from "../../../common/Button/styles"
 
-function BalanceCard({ background, title, data }) {
+const { Meta } = Card
+
+function BalanceCard({ balance }) {
   return (
     <div>
-      <S.Card background={background}>
-        <S.CardTitle>{title}</S.CardTitle>
-        <S.CardData>{data}</S.CardData>
-      </S.Card>
+      <Card style={{ width: 300 }} actions={[<Button>Withdraw</Button>]}>
+        <Meta title={formatAmount(balance)} description="balance" />
+      </Card>
     </div>
   )
 }

@@ -1,9 +1,4 @@
-const { createAccount } = require("./src/api/user")
-const { GetWalletProvider } = require("./src/api/getwallet")
+const { createAccount, getWallet } = require("./src/api/user")
 
 exports.createAccount = createAccount
-
-/**
- * WALLET
- */
-const walletProvider = new GetWalletProvider()
+exports.getWallet = getWallet

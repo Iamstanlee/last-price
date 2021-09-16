@@ -3,6 +3,8 @@ import { Row, Col, Drawer } from "antd"
 import { CSSTransition } from "react-transition-group"
 
 import * as S from "./styles"
+import { useUserContext } from "../../context/UserContext"
+import { useHistory } from "react-router-dom"
 const SvgIcon = lazy(() => import("../../common/SvgIcon"))
 const PngIcon = lazy(() => import("../../common/PngIcon"))
 
@@ -10,6 +12,10 @@ const Header = () => {
   const [isNavVisible] = useState(false)
   const [isSmallScreen] = useState(false)
   const [visible, setVisibility] = useState(false)
+  const history = useHistory()
+  const {
+    user: { user },
+  } = useUserContext()
 
   const showDrawer = () => {
     setVisibility(!visible)
@@ -24,14 +30,26 @@ const Header = () => {
       <Fragment>
         <S.CustomNavLinkSmall
           onClick={() => {
-            // check if login
+            if (user) {
+              history.push("/post-a-deal")
+            } else {
+              history.push("/login?next=post-a-deal&")
+            }
           }}
         >
           <S.Span>Post a Deal</S.Span>
         </S.CustomNavLinkSmall>
-        <S.CustomNavLinkSmall to="/login">
+        <S.CustomNavLinkSmall
+          onClick={() => {
+            if (user) {
+              history.push("/dashboard")
+            } else {
+              history.push("/login")
+            }
+          }}
+        >
           <SvgIcon src="user.svg" height="16px" />
-          <S.Span padding="0 4px">login</S.Span>
+          <S.Span padding="0 4px">{user ? user.fullname : "login"}</S.Span>
         </S.CustomNavLinkSmall>
       </Fragment>
     )

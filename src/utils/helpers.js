@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid"
+import { notification } from "antd"
 
 export const getParamByName = (name) => {
   return new URLSearchParams(window.location.search).get(name)
@@ -62,6 +63,28 @@ export const getFileSize = (bytes) => {
   }
 }
 
-export function formatToNumber(value) {
-  return new Intl.NumberFormat().format(value)
+export const koboToNgn = (kobo) => kobo / 100
+export const ngnToKobo = (ngn) => ngn * 100
+
+export function formatAmount(value) {
+  return `NGN ${new Intl.NumberFormat().format(koboToNgn(value))}`
+}
+
+export const notify = (msg, state = "error") => {
+  switch (state) {
+    case "error":
+      notification["error"]({
+        message: "Error",
+        description: msg || "",
+      })
+      break
+    case "success":
+      notification["success"]({
+        message: "Success",
+        description: msg || "",
+      })
+      break
+    default:
+      break
+  }
 }

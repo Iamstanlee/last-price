@@ -2,11 +2,8 @@
  * firestore collection/sub-collection Ids
  */
 const fireIds = {
-  vendors: "vendors",
+  products: "products",
   users: "users",
-  orders: "orders",
-  kpTransactions: "kp_transactions",
-  wallets: "wallets",
 }
 
 module.exports = { fireIds }

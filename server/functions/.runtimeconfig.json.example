@@ -1,8 +1,4 @@
 {
-	"paystack": {
-		"dev": "",
-		"prod": ""
-	},
 	"getwallet": {
 		"dev": "",
 		"prod": ""

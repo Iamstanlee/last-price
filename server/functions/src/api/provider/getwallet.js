@@ -1,11 +1,11 @@
+const functions = require("firebase-functions")
 const { get, post } = require("../../helper")
 const { getTransactionId } = require("../../utils")
 
-// const apiKey = process.env === "production" ? config.getwallet.prod : config.getwallet.dev;
 const apiKey =
   process.env === "production"
-    ? "sk_test_61429e45e7e3684960079c5761429e45e7e3684960079c58"
-    : "sk_test_61429e45e7e3684960079c5761429e45e7e3684960079c58"
+    ? functions.config().getwallet.prod
+    : functions.config().getwallet.dev
 const apiUrl = "https://api.getwallets.co/v1"
 const headers = {
   Accept: "application/json",
@@ -47,25 +47,31 @@ class GetWalletProvider {
     const transaction = {
       amount: data.amount,
       from_wallet_id: data.wallet_id,
-      bank_code: data.bank.bank_code,
-      account_number: data.bank.account_number,
+      bank_code: data.bank_code,
+      account_number: data.account_number,
       meta_data: {
         transaction_id: getTransactionId(),
         created_at: thisInstant,
         updated_at: thisInstant,
       },
     }
-
     try {
-      const res = await post(
-        `${apiUrl}/wallets/transfers/bank`,
-        transaction,
-        headers
-      )
-      if (res.success && res.data.success) {
-        return { success: true, data: transaction }
+      if ((await this.resolveBank(data)).success) {
+        const res = await post(
+          `${apiUrl}/wallets/transfers/bank`,
+          transaction,
+          headers
+        )
+        if (res.success) {
+          return { success: true, data: transaction }
+        }
+        return {
+          success: false,
+          message: res.message || "Something went wrong",
+        }
+      } else {
+        return { success: false, message: "Error resolving bank details" }
       }
-      return { success: false, message: res.message || "Something went wrong" }
     } catch (err) {
       return { success: false, message: err || "Something went wrong" }
     }
@@ -107,6 +113,21 @@ class GetWalletProvider {
       const res = await post(
         `${apiUrl}/wallets/funds/banktransfer`,
         transaction,
+        headers
+      )
+      if (res.success) {
+        return { success: true, data: res.data }
+      }
+      return { success: false, message: res.message || "Something went wrong" }
+    } catch (err) {
+      return { success: false, message: err || "Something went wrong" }
+    }
+  }
+
+  async resolveBank(bank) {
+    try {
+      const res = await get(
+        `${apiUrl}/resolve?account_number=${bank.account_number}&bank_code=${bank.bank_code}`,
         headers
       )
       if (res.success) {

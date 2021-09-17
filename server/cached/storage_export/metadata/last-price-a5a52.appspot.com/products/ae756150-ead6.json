@@ -1,0 +1,19 @@
+{
+  "name": "products/ae756150-ead6",
+  "bucket": "last-price-a5a52.appspot.com",
+  "contentType": "image/jpeg",
+  "metageneration": 1,
+  "generation": 1631899727787,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "a0dfc429-3015-46d2-a4b1-1fb4c3094684"
+  ],
+  "timeCreated": "2021-09-17T17:28:47.786Z",
+  "updated": "2021-09-17T17:28:47.789Z",
+  "size": 118142,
+  "md5Hash": "/oeReWfmbgxjcs3sDSyGzg==",
+  "crc32c": "3552732351"
+}

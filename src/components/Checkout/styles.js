@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export const CheckoutContainer = styled.div`
-  padding: 5rem 0;
+  padding: 5rem 1rem;
 `
 
 export const FormGroup = styled.form`

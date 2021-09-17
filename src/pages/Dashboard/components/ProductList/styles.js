@@ -1,40 +1,47 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
 
-export const DashboardContainer = styled.div`
-  padding: 5rem 0;
-  text-align: center;
-`
-export const NavLink = styled(Link)`
-  font-size: 14px;
-`
-
-export const Span = styled.span`
-  display: block;
-  color: ${(props) => props.color};
-  padding: ${(props) => props.padding || "4px 0.675rem"};
-  margin-bottom: 0.2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-`
-
-export const ButtonContainer = styled.div`
-  margin-top: 10px;
+export const CardContainer = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  @media only screen and (min-width: 1046px) {
-    width: 70%;
-  }
+  text-align: left;
 `
-export const ProductContainer = styled.div`
-  margin: 0px auto;
+export const Card = styled.div`
+  padding: 0.7rem;
+  margin: 0.7rem 0;
+  background: #fff;
   width: 100%;
-  max-width: 400px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+`
+export const DetailContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const Img = styled.img`
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+`
+export const Details = styled.div`
+  display: flex;
   flex-direction: column;
-  @media only screen and (min-width: 1046px) {
-  }
+  align-items: flex-start;
+  padding-left: .8rem;
+`
+
+export const Name = styled.h6`
+  font-size: 1.1rem;
+  margin: 0;
+`
+
+export const Price = styled.span`
+  font-size: 0.9rem;
+`
+export const Sales = styled.span`
+  color: #000;
+  font-size: 0.8rem;
+  margin: 0;
+  padding-left: .6rem;
 `

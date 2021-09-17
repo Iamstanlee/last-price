@@ -56,7 +56,7 @@ const Login = (props) => {
             <ValidationType type="password" />
           </S.InputContainer>
           <S.ButtonContainer>
-            <Button name="submit" type="submit" width="98%">
+            <Button name="submit" type="submit" width="100%">
               {loading ? "Please Wait..." : "LOGIN"}
             </Button>
           </S.ButtonContainer>

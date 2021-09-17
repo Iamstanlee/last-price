@@ -1,7 +1,7 @@
 import * as S from "./styles"
 import { Card, Col } from "antd"
 import { useHistory } from "react-router-dom"
-import { formatAmount, getLastPrice } from "../../utils/helpers"
+import { formatAmount } from "../../utils/helpers"
 const { Meta } = Card
 
 const ProductItem = ({ product }) => {
@@ -18,10 +18,7 @@ const ProductItem = ({ product }) => {
               {formatAmount(product.product_price)}
             </S.CardNormalPrice>
             <S.CardSalesPrice>
-              {product.last_price ||
-                formatAmount(
-                  getLastPrice(product.product_price, product.percentage_off)
-                )}
+              {formatAmount(product.last_price)}
             </S.CardSalesPrice>
           </S.CardPriceContainer>
           <S.CardButton

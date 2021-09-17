@@ -1,5 +1,6 @@
 import Dashboard from "./components"
 import PostDeal from "./components/PostDeal"
+import Withdraw from "./components/Withdraw"
 
 const routes = [
   {
@@ -13,7 +14,7 @@ const routes = [
   },
   {
     path: ["/dashboard/withdraw"],
-    component: Dashboard,
+    component: Withdraw,
   },
 ]
 

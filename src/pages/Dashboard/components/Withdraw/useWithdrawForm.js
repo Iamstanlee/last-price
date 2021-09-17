@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { auth } from "../../firebase"
+import { auth } from "../../../../firebase"
 import { useHistory } from "react-router-dom"
-import { getParamByName, notify } from "../../utils/helpers"
+import { getParamByName, notify } from "../../../../utils/helpers"
 
-const useLoginForm = (validate) => {
+const useWithdrawForm = (validate) => {
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
@@ -49,4 +49,4 @@ const useLoginForm = (validate) => {
   }
 }
 
-export default useLoginForm
+export default useWithdrawForm

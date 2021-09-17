@@ -7,6 +7,7 @@ const GET_PRODUCTS_END = "GET_PRODUCTS_END"
 const INITIAL_STATE = {
   products: null,
   loading: false,
+  
 }
 
 const productReducer = (state, action) => {

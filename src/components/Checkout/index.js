@@ -69,7 +69,7 @@ const Checkout = () => {
             <ValidationType type="address" />
           </S.InputContainer>
           <S.ButtonContainer>
-            <Button name="submit" type="submit" width="98%">
+            <Button name="submit" type="submit" width="100%">
               {loading ? "Please Wait..." : "PAY NOW"}
             </Button>
           </S.ButtonContainer>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import * as S from "./styles"
 import { useHistory, useLocation } from "react-router-dom"
-import { formatAmount, getLastPrice, getParamByName } from "../../utils/helpers"
+import { formatAmount, getParamByName } from "../../utils/helpers"
 import { getProductById } from "../../context/ProductContext"
 import Loader from "../../common/Loader"
 
@@ -54,10 +54,7 @@ const ProductInfo = () => {
                 {formatAmount(product.product_price)}
               </S.NormalPrice>
               <S.SalesPrice>
-                {product.last_price ||
-                  formatAmount(
-                    getLastPrice(product.product_price, product.percentage_off)
-                  )}
+                {formatAmount(product.last_price)}
               </S.SalesPrice>
             </S.PriceContainer>
             <S.Button

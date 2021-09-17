@@ -23,3 +23,7 @@ exports.createAccount = functions.https.onCall(async (data, _) => {
 exports.getWallet = functions.https.onCall(async (walletId, _) =>
   walletProvider.getWallet(walletId)
 )
+
+exports.fundViaBankTransfer = functions.https.onCall(async (walletId, _) =>
+  walletProvider.fundViaBankTransfer(walletId)
+)

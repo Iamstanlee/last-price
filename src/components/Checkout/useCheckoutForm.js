@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
-import { notify } from "../../utils/helpers"
+import { getParamByName, notify } from "../../utils/helpers"
+import { functions, functionIds } from "../../firebase"
 
 const useCheckoutForm = (validate) => {
   const [values, setValues] = useState({})
@@ -21,8 +22,24 @@ const useCheckoutForm = (validate) => {
     event.preventDefault()
     if (Object.keys(validate(values)).length === 0) {
       setErrors({})
-      console.log(values)
-      //   setLoading(true)
+      setLoading(true)
+      try {
+        const callable = functions.httpsCallable(functionIds.initCheckout)
+        const data = {
+          shipping_address: values,
+          product_id: getParamByName("pid"),
+        }
+        const resp = await callable(data)
+        console.log(resp)
+        if (resp.success) {
+          console.log(resp)
+        } else {
+          notify(resp.message)
+        }
+      } catch (e) {
+        notify(e.message)
+      }
+      setLoading(false)
     } else {
       setErrors(validate(values))
     }

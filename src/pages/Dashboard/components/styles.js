@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const DashboardContainer = styled.div`
   padding: 5rem 0;
-  text-align: center
+  text-align: center;
 `
 export const NavLink = styled(Link)`
   font-size: 14px;
@@ -14,7 +14,6 @@ export const Span = styled.span`
   color: ${(props) => props.color};
   padding: ${(props) => props.padding || "4px 0.675rem"};
   margin-bottom: 0.2rem;
-  font-weight: 600;
   font-size: 1rem;
   text-align: center;
 `

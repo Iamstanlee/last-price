@@ -25,12 +25,9 @@ const ProductItem = ({ product }) => {
           </S.CardPriceContainer>
           <S.CardButton
             onClick={(e) =>
-              history.push(
-                `deals/${product.user_public_id}?pid=${product.product_id}`,
-                {
-                  product,
-                }
-              )
+              history.push(`deals?pid=${product.product_id}`, {
+                product,
+              })
             }
           >
             Buy Item

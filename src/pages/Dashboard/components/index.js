@@ -6,12 +6,12 @@ import { useUserContext } from "../../../context/UserContext"
 
 const Dashboard = () => {
   const {
-    user: { wallet },
+    user: { wallet, user },
   } = useUserContext()
   return (
     <S.DashboardContainer>
       <Col lg={10} md={12} sm={24} xs={24} className="margin-auto"></Col>
-      <h6>Enye Hack Dashboard</h6>
+      <h6>{user && user.fullname} Dashboard</h6>
       <BalanceCard balance={(wallet && wallet.balance) || ""} />
       <Row align="middle" justify="center" className="mt-3">
         <S.Span color="#000">Products</S.Span>
@@ -36,7 +36,7 @@ const Dashboard = () => {
       </Row>
 
       <S.ProductContainer>
-        <SvgIcon src="activity.svg" width="100px" height="100px" />
+        <SvgIcon src="activity.svg" width="80px" height="80px" />
         <S.Span>&#183; No product up for sale &#183;</S.Span>
       </S.ProductContainer>
       {/* product listing */}

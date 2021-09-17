@@ -13,11 +13,11 @@ const routes = [
   },
 
   {
-    path: ["/deals/:id"],
+    path: ["/deals"],
     component: Product,
   },
   {
-    path: ["/checkout/:id"],
+    path: ["/checkout"],
     component: Checkout,
   },
   {

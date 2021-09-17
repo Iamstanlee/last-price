@@ -97,6 +97,32 @@ class GetWalletProvider {
       return { success: false, message: err || "Something went wrong" }
     }
   }
+
+  async fundViaBankTransfer(walletId) {
+    // const date = new Date()
+    // const thisInstant = date.toISOString()
+    const transaction = {
+      wallet_id: walletId,
+      //   meta_data: {
+      //     transaction_id: data.transaction_id || getTransactionId(),
+      //     created_at: data.created_at || thisInstant,
+      //     updated_at: data.updated_at || thisInstant,
+      //   },
+    }
+    try {
+      const res = await post(
+        `${apiUrl}/wallets/funds/banktransfer`,
+        transaction,
+        headers
+      )
+      if (res.success && res.data.success) {
+        return { success: true, data: res.data.data }
+      }
+      return { success: false, message: res.message || "Something went wrong" }
+    } catch (err) {
+      return { success: false, message: err || "Something went wrong" }
+    }
+  }
 }
 
 module.exports = { GetWalletProvider }

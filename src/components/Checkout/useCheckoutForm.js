@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 import { getParamByName, notify } from "../../utils/helpers"
 import { functions, functionIds } from "../../firebase"
 
@@ -7,7 +7,7 @@ const useCheckoutForm = (validate) => {
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+//   const history = useHistory()
 
   const handleChange = (event) => {
     event.persist()

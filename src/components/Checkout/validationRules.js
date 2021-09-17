@@ -8,7 +8,7 @@ export default function validate(values) {
   if (!values.phonenumber) {
     errors.phonenumber = "Phonenumber is required"
   } else if (
-    values.phonenumber.length != 11 ||
+    values.phonenumber.length !== 11 ||
     !validateNum(values.phonenumber)
   ) {
     errors.phonenumber = "Phonenumber must be atleast 11 digits"

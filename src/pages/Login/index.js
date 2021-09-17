@@ -39,7 +39,7 @@ const Login = (props) => {
               id="Email address"
               name="email"
               placeholder="foo@bar.com"
-              value={values.email || ""}
+              value={values.email}
               onChange={handleChange}
             />
             <ValidationType type="email" />
@@ -50,13 +50,13 @@ const Login = (props) => {
               id="Password"
               name="password"
               placeholder="Min. 8 characters"
-              value={values.password || ""}
+              value={values.password}
               onChange={handleChange}
             />
             <ValidationType type="password" />
           </S.InputContainer>
           <S.ButtonContainer>
-            <Button name="submit" type="submit" width="98%">
+            <Button name="submit" type="submit" width="100%">
               {loading ? "Please Wait..." : "LOGIN"}
             </Button>
           </S.ButtonContainer>

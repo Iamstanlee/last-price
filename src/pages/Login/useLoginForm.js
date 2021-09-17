@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { auth } from "../../firebase"
 import { useHistory } from "react-router-dom"
-import { notify } from "../../utils/helpers"
+import { getParamByName, notify } from "../../utils/helpers"
 
 const useLoginForm = (validate) => {
   const [values, setValues] = useState({})
@@ -28,7 +28,8 @@ const useLoginForm = (validate) => {
         .then((_) => {
           setLoading(false)
           setValues({})
-          history.push("/dashboard")
+          const next = getParamByName("next") || "/dashboard"
+          history.push(next)
         })
         .catch((e) => {
           notify(e.message)

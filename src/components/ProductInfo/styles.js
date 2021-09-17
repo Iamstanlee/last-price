@@ -57,3 +57,7 @@ export const Button = styled.button`
   width: 100%;
   cursor: pointer;
 `
+
+export const Span = styled.span`
+  font-size: 13px;
+`

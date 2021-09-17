@@ -3,7 +3,12 @@ import { useHistory } from "react-router-dom"
 import { useUserContext } from "../../../../context/UserContext"
 import { db, fireIds } from "../../../../firebase"
 import { uploadFile } from "../../../../utils/api"
-import { ngnToKobo, notify, uuid } from "../../../../utils/helpers"
+import {
+  getLastPrice,
+  ngnToKobo,
+  notify,
+  uuid,
+} from "../../../../utils/helpers"
 
 const usePDForm = (validate) => {
   const [values, setValues] = useState({})
@@ -32,6 +37,10 @@ const usePDForm = (validate) => {
         const product = {
           ...values,
           product_price: ngnToKobo(parseInt(values.product_price)),
+          last_price: getLastPrice(
+            ngnToKobo(parseInt(values.product_price)),
+            values.percentage_off
+          ),
           percentage_off: parseFloat(values.percentage_off),
         }
 
@@ -42,7 +51,6 @@ const usePDForm = (validate) => {
           "products",
           product.product_id
         )
-        console.log(product)
         await db
           .collection(fireIds.products)
           .doc(product.product_id)

@@ -103,12 +103,23 @@ const Styles = createGlobalStyle`
 
     }
    .icon{
-      width:25px;
-      height: 25px;
+      width:18px;
+      height: 18px;
+      margin-left: .4rem;
    }
-   .mt-3{
+   
+   .margin-auto{
+        margin: 0 auto;
+    }
+    .mx-width400{
+       max-width: 400px;
+    }
+    .mt-4{
+      margin-top: 4rem;
+    }
+    .mb-3{
       margin-top: 3rem;
-   }
+    }
     .about-block-image svg {
         text-align: center;
     }
@@ -128,11 +139,7 @@ const Styles = createGlobalStyle`
     .anticon,
     .ant-notification-notice-icon-success {
         color: rgb(255,130,92);
-    }
-    .margin-auto{
-        margin: 0 auto;
-    }
-   
+    }   
    .ant-card-meta-title {
       font-weight: 900;
    } 

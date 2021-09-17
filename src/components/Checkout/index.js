@@ -13,8 +13,10 @@ const Checkout = () => {
     values,
     errors,
     loading,
+    loading2,
     handleChange,
     handleSubmit,
+    payManually,
   } = useCheckoutForm(validate)
 
   const ValidationType = ({ type }) => {
@@ -43,7 +45,7 @@ const Checkout = () => {
               id="Email address"
               name="email"
               placeholder="foo@bar.com"
-              value={values.email || ""}
+              value={values.email}
               onChange={handleChange}
             />
             <ValidationType type="email" />
@@ -53,24 +55,29 @@ const Checkout = () => {
               id="Phone number"
               name="phonenumber"
               placeholder="090000000000"
-              value={values.phonenumber || ""}
+              value={values.phonenumber}
               onChange={handleChange}
             />
             <ValidationType type="phonenumber" />
           </S.InputContainer>
-          <S.InputContainer>
+          {/* <S.InputContainer>
             <Input
               id="Delivery address"
               name="address"
               placeholder="delivery address"
-              value={values.address || ""}
+              value={values.address}
               onChange={handleChange}
             />
             <ValidationType type="address" />
-          </S.InputContainer>
+          </S.InputContainer> */}
           <S.ButtonContainer>
-            <Button name="submit" type="submit" width="98%">
-              {loading ? "Please Wait..." : "PAY NOW"}
+            <Button name="submit" type="submit" width="100%">
+              {loading ? "Please Wait..." : "Pay Now"}
+            </Button>
+          </S.ButtonContainer>
+          <S.ButtonContainer>
+            <Button color="#fff" width="100%" onClick={(e) => payManually(e)}>
+              {loading2 ? "Please Wait..." : "Pay Manually"}
             </Button>
           </S.ButtonContainer>
         </S.FormGroup>

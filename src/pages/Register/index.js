@@ -43,7 +43,7 @@ const Register = (props) => {
               id="Brand name"
               name="fullname"
               placeholder="Enye Shoes"
-              value={values.fullname || ""}
+              value={values.fullname}
               onChange={handleChange}
             />
             <ValidationType type="fullname" />
@@ -54,7 +54,7 @@ const Register = (props) => {
               id="Email address"
               name="email"
               placeholder="foo@bar.com"
-              value={values.email || ""}
+              value={values.email}
               onChange={handleChange}
             />
             <ValidationType type="email" />
@@ -65,13 +65,13 @@ const Register = (props) => {
               id="Password"
               name="password"
               placeholder="Min. 8 characters"
-              value={values.password || ""}
+              value={values.password}
               onChange={handleChange}
             />
             <ValidationType type="password" />
           </S.InputContainer>
           <S.ButtonContainer>
-            <Button name="submit" type="submit" width="98%">
+            <Button name="submit" type="submit" width="100%">
               {loading ? "Please Wait..." : "REGISTER"}
             </Button>
           </S.ButtonContainer>

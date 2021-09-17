@@ -32,6 +32,9 @@ if (process.env.NODE_ENV === "development")
 const functionIds = {
   createAccount: "createAccount",
   getWallet: "getWallet",
+  initCheckout: "initCheckout",
+  completeCheckout: "completeCheckout",
+  withdrawFromWallet: "withdrawFromWallet",
 }
 /**
  * firestore collection/sub-collection Ids

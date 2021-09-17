@@ -1,0 +1,19 @@
+{
+  "name": "products/bd451e1e-8449",
+  "bucket": "last-price-a5a52.appspot.com",
+  "contentType": "image/jpeg",
+  "metageneration": 1,
+  "generation": 1631825567526,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "5369191b-9b55-4611-a2d3-7426df5f7533"
+  ],
+  "timeCreated": "2021-09-16T20:52:47.525Z",
+  "updated": "2021-09-16T20:52:47.530Z",
+  "size": 118142,
+  "md5Hash": "/oeReWfmbgxjcs3sDSyGzg==",
+  "crc32c": "3552732351"
+}

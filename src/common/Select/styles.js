@@ -8,22 +8,3 @@ export const Container = styled.div`
 export const Label = styled.div`
   text-align: left;
 `
-
-export const Select = styled.select`
-  max-width: auto !important;
-  width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-  outline: none;
-  font-size: 0.875rem;
-  padding: 1rem 1.25rem;
-  transition: border-color 0.3s ease-in;
-  border-radius: 8px;
-  color: #000;
-
-  &:focus,
-  &:hover {
-    border-color: #2e186a;
-  }
-`

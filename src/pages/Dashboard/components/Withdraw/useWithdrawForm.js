@@ -25,6 +25,14 @@ const useWithdrawForm = (validate) => {
     setErrors((errors) => ({ ...errors, [event.target.name]: "" }))
   }
 
+  function handleSelectChange(value) {
+    setValues((values) => ({
+      ...values,
+      bank_code: value,
+    }))
+    setErrors((errors) => ({ ...errors, bank_code: "" }))
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (Object.keys(validate(values)).length === 0) {
@@ -79,6 +87,7 @@ const useWithdrawForm = (validate) => {
 
   return {
     handleChange,
+    handleSelectChange,
     handleSubmit,
     getBanks,
     banks,

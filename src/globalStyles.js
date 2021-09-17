@@ -150,6 +150,33 @@ const Styles = createGlobalStyle`
       height: 240px;
       object-fit: cover;
    }
+   .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+      max-width: auto !important;
+      width: 100%;
+      height: auto;
+      border-width: 1px;
+      border-style: solid;
+      border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+      outline: none;
+      font-size: 0.875rem;
+      padding: 1rem 1.25rem;
+      transition: border-color 0.3s ease-in;
+      border-radius: 8px;
+      color: #000;
+
+      &:focus,
+      &:hover {
+         border-color: #2e186a !important;
+         box-shadow: none !important;
+      }
+   }
+   .ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector input{
+      height: auto;
+      padding: 1.2rem .6rem;
+   }
+   .ant-select-arrow .anticon {
+    color: rgb(0, 0, 0);
+}
 `
 
 export default Styles

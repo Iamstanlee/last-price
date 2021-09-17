@@ -1,5 +1,5 @@
-import { lazy, useEffect } from "react"
-import { Col } from "antd"
+import { lazy, useEffect, useState } from "react"
+import { Col, Select } from "antd"
 import * as S from "./styles"
 
 import useWithdrawForm from "./useWithdrawForm"
@@ -7,8 +7,8 @@ import validate from "./validationRules"
 
 const Input = lazy(() => import("../../../../common/Input"))
 const Button = lazy(() => import("../../../../common/Button"))
-const Select = lazy(() => import("../../../../common/Select"))
 const Loader = lazy(() => import("../../../../common/Loader"))
+const SelectInput = lazy(() => import("../../../../common/Select"))
 
 const Withdraw = () => {
   const {
@@ -17,6 +17,7 @@ const Withdraw = () => {
     loading,
     banks,
     handleChange,
+    handleSelectChange,
     handleSubmit,
     getBanks,
   } = useWithdrawForm(validate)
@@ -71,14 +72,17 @@ const Withdraw = () => {
                 <ValidationType type="account_number" />
               </S.InputContainer>
               <S.InputContainer>
-                <Select id="Bank Name" name="bank_code" onChange={handleChange}>
-                  <option value="">Select your bank</option>
+                <SelectInput
+                  id="Bank Name"
+                  name="bank_code"
+                  onChange={handleSelectChange}
+                >
                   {banks.map((bank) => (
-                    <option key={bank.code} value={bank.code}>
+                    <Select.Option key={bank.code} value={bank.code}>
                       {bank.name}
-                    </option>
+                    </Select.Option>
                   ))}
-                </Select>
+                </SelectInput>
                 <ValidationType type="bank_code" />
               </S.InputContainer>
               <S.ButtonContainer>

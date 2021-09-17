@@ -2,7 +2,9 @@ import { validateNum } from "../../../../utils/validators"
 
 export default function validate(values) {
   let errors = {}
-
+  if (!values.bank_code) {
+    errors.bank_code = "bank is required"
+  }
   if (!values.amount) {
     errors.amount = "amount is required"
   } else if (!validateNum(values.amount)) {

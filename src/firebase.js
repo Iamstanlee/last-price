@@ -34,6 +34,7 @@ const functionIds = {
   getWallet: "getWallet",
   initCheckout: "initCheckout",
   completeCheckout: "completeCheckout",
+  withdrawFromWallet: "withdrawFromWallet",
 }
 /**
  * firestore collection/sub-collection Ids

@@ -24,7 +24,13 @@ exports.initCheckout = functions.https.onCall(async (data, _) => {
             shipping_address: data.shipping_address,
             status: "pending",
           })
-        return walletProvider.fundViaBankTransfer(user.data().wallet_id)
+        // fund via bank transfer is not working so we're going to manually fund the wallet
+        // for testing
+        // return walletProvider.fundViaBankTransfer(user.data().wallet_id)
+        return walletProvider.fund({
+          amount: data.last_price,
+          wallet_id: user.data().wallet_id,
+        })
       }
     }
     return { success: false, message: "This product does not exists" }

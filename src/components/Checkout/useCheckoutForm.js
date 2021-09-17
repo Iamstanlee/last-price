@@ -7,7 +7,7 @@ const useCheckoutForm = (validate) => {
   const [values, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
-//   const history = useHistory()
+  //   const history = useHistory()
 
   const handleChange = (event) => {
     event.persist()
@@ -29,10 +29,9 @@ const useCheckoutForm = (validate) => {
           shipping_address: values,
           product_id: getParamByName("pid"),
         }
-        const resp = await callable(data)
-        console.log(resp)
+        const resp = (await callable(data)).data
         if (resp.success) {
-          console.log(resp)
+            // 
         } else {
           notify(resp.message)
         }

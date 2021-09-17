@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   loading: false,
 }
 
-const userReducer = (state, action) => {
+const productReducer = (state, action) => {
   switch (action.type) {
     case GET_PRODUCTS_START:
       return { ...state, loading: true }
@@ -23,7 +23,10 @@ const userReducer = (state, action) => {
 export const ProductContext = createContext()
 export const ProductConsumer = ProductContext.Consumer
 export const ProductProvider = ({ children }) => {
-  const [product, updateProductContext] = useReducer(userReducer, INITIAL_STATE)
+  const [product, updateProductContext] = useReducer(
+    productReducer,
+    INITIAL_STATE
+  )
   return (
     <ProductContext.Provider value={{ product, updateProductContext }}>
       {children}
@@ -49,4 +52,15 @@ export const getProducts = async (dispatch) => {
     type: GET_PRODUCTS_END,
     payload: products,
   })
+}
+
+export const getProductById = async (pid) => {
+  try {
+    const product = await db.collection(fireIds.products).doc(pid).get()
+    if (product && product.exists)
+      return { success: true, data: product.data() }
+    return { success: false, message: "Invalid product link" }
+  } catch (err) {
+    return { success: false, message: err || "Something went wrong" }
+  }
 }

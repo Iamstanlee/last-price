@@ -18,15 +18,16 @@ const ProductItem = ({ product }) => {
               {formatAmount(product.product_price)}
             </S.CardNormalPrice>
             <S.CardSalesPrice>
-              {formatAmount(
-                getLastPrice(product.product_price, product.percentage_off)
-              )}
+              {product.last_price ||
+                formatAmount(
+                  getLastPrice(product.product_price, product.percentage_off)
+                )}
             </S.CardSalesPrice>
           </S.CardPriceContainer>
           <S.CardButton
             onClick={(e) =>
               history.push(`deals?pid=${product.product_id}`, {
-                product,
+                params: product,
               })
             }
           >

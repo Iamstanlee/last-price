@@ -4,7 +4,11 @@ import * as S from "./styles"
 
 import usePDForm from "./usePDForm"
 import validate from "./validationRules"
-import { formatAmount, getLastPrice } from "../../../../utils/helpers"
+import {
+  formatAmount,
+  getLastPrice,
+  ngnToKobo,
+} from "../../../../utils/helpers"
 
 const Input = lazy(() => import("../../../../common/Input"))
 const Button = lazy(() => import("../../../../common/Button"))
@@ -59,11 +63,8 @@ const PostDeal = () => {
                 values.product_image = file
               }}
             >
-              <label
-                htmlFor="image_upload"
-                className="cursor-pointer text-center"
-              >
-                Drag or tap to add a product image
+              <label htmlFor="image_upload">
+                Add a product image
               </label>
               <S.ImgInput
                 type="file"
@@ -85,7 +86,7 @@ const PostDeal = () => {
               id="Product name"
               name="product_name"
               placeholder="Rolex watch"
-              value={values.product_name || ""}
+              value={values.product_name}
               onChange={handleChange}
             />
             <ValidationType type="product_name" />
@@ -95,7 +96,7 @@ const PostDeal = () => {
               id="Product description"
               name="product_description"
               placeholder="sell this product, talk about why your customers need it"
-              value={values.product_description || ""}
+              value={values.product_description}
               onChange={handleChange}
             />
             <ValidationType type="product_description" />
@@ -106,7 +107,7 @@ const PostDeal = () => {
               id="Product price"
               name="product_price"
               placeholder="10,000"
-              value={values.product_price || ""}
+              value={values.product_price}
               onChange={handleChange}
             />
             <ValidationType type="product_price" />
@@ -116,7 +117,7 @@ const PostDeal = () => {
               id="Percentage off"
               name="percentage_off"
               placeholder="10%"
-              value={values.percentage_off || ""}
+              value={values.percentage_off}
               onChange={handleChange}
             />
             <ValidationType type="percentage_off" />
@@ -126,7 +127,7 @@ const PostDeal = () => {
               Lastprice:{" "}
               {formatAmount(
                 getLastPrice(
-                  parseInt(values.product_price) * 100,
+                  ngnToKobo(parseInt(values.product_price)),
                   values.percentage_off
                 )
               )}

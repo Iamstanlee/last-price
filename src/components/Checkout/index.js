@@ -43,7 +43,7 @@ const Checkout = () => {
               id="Email address"
               name="email"
               placeholder="foo@bar.com"
-              value={values.email || ""}
+              value={values.email}
               onChange={handleChange}
             />
             <ValidationType type="email" />
@@ -53,7 +53,7 @@ const Checkout = () => {
               id="Phone number"
               name="phonenumber"
               placeholder="090000000000"
-              value={values.phonenumber || ""}
+              value={values.phonenumber}
               onChange={handleChange}
             />
             <ValidationType type="phonenumber" />
@@ -63,7 +63,7 @@ const Checkout = () => {
               id="Delivery address"
               name="address"
               placeholder="delivery address"
-              value={values.address || ""}
+              value={values.address}
               onChange={handleChange}
             />
             <ValidationType type="address" />

@@ -16,6 +16,9 @@ const Input = ({ id, name, onChange, children }) => {
         id={name}
         onChange={onChange}
         showSearch
+        filterOption={(input, option) =>
+          option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+        }
         placeholder="Search to Select"
       >
         {children}

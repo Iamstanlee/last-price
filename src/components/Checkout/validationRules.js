@@ -2,9 +2,9 @@ import { validateEmail, validateNum } from "../../utils/validators"
 
 export default function validate(values) {
   let errors = {}
-  if (!values.address) {
-    errors.address = "Address is required"
-  }
+  //   if (!values.address) {
+  //     errors.address = "Address is required"
+  //   }
   if (!values.phonenumber) {
     errors.phonenumber = "Phonenumber is required"
   } else if (

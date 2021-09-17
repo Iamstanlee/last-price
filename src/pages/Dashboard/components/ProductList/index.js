@@ -1,11 +1,7 @@
-import { useProductContext } from "../../../../context/ProductContext"
 import { formatAmount } from "../../../../utils/helpers"
 import * as S from "./styles"
 
-function ProductList() {
-  const {
-    product: { products },
-  } = useProductContext()
+function ProductList({ products }) {
   return (
     <S.CardContainer>
       {products &&
@@ -20,7 +16,7 @@ function ProductList() {
                 </S.Price>
               </S.Details>
             </S.DetailContainer>
-            <S.Sales>2 Sales</S.Sales>
+            <S.Sales>{product.sales || 0} Sales</S.Sales>
           </S.Card>
         ))}
     </S.CardContainer>

@@ -3,11 +3,14 @@ import { db, fireIds } from "../firebase"
 
 const GET_PRODUCTS_START = "GET_PRODUCTS_START"
 const GET_PRODUCTS_END = "GET_PRODUCTS_END"
+const GET_USER_PRODUCTS_START = "GET_USER_PRODUCTS_START"
+const GET_USER_PRODUCTS_END = "GET_USER_PRODUCTS_END"
 
 const INITIAL_STATE = {
   products: null,
   loading: false,
-  
+  user_products: null,
+  user_products_loading: false,
 }
 
 const productReducer = (state, action) => {
@@ -17,6 +20,11 @@ const productReducer = (state, action) => {
     case GET_PRODUCTS_END:
       const products = action.payload
       return { ...state, products, loading: false }
+    case GET_USER_PRODUCTS_START:
+      return { ...state, user_products_loading: true }
+    case GET_USER_PRODUCTS_END:
+      const user_products = action.payload
+      return { ...state, user_products, user_products_loading: false }
     default:
   }
 }
@@ -64,4 +72,19 @@ export const getProductById = async (pid) => {
   } catch (err) {
     return { success: false, message: err || "Something went wrong" }
   }
+}
+
+export const getUserProducts = async (dispatch, userPubId) => {
+  dispatch({
+    type: GET_USER_PRODUCTS_START,
+  })
+  const resp = await db
+    .collection(fireIds.products)
+    .where("user_public_id", "==", userPubId)
+    .get()
+  const products = resp.docs.map((e) => e.data())
+  dispatch({
+    type: GET_USER_PRODUCTS_END,
+    payload: products,
+  })
 }

@@ -13,8 +13,10 @@ const Checkout = () => {
     values,
     errors,
     loading,
+    loading2,
     handleChange,
     handleSubmit,
+    payManually,
   } = useCheckoutForm(validate)
 
   const ValidationType = ({ type }) => {
@@ -58,7 +60,7 @@ const Checkout = () => {
             />
             <ValidationType type="phonenumber" />
           </S.InputContainer>
-          <S.InputContainer>
+          {/* <S.InputContainer>
             <Input
               id="Delivery address"
               name="address"
@@ -67,10 +69,15 @@ const Checkout = () => {
               onChange={handleChange}
             />
             <ValidationType type="address" />
-          </S.InputContainer>
+          </S.InputContainer> */}
           <S.ButtonContainer>
             <Button name="submit" type="submit" width="100%">
-              {loading ? "Please Wait..." : "PAY NOW"}
+              {loading ? "Please Wait..." : "Pay Now"}
+            </Button>
+          </S.ButtonContainer>
+          <S.ButtonContainer>
+            <Button color="#fff" width="100%" onClick={(e) => payManually(e)}>
+              {loading2 ? "Please Wait..." : "Pay Manually"}
             </Button>
           </S.ButtonContainer>
         </S.FormGroup>

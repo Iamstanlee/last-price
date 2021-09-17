@@ -63,9 +63,7 @@ const PostDeal = () => {
                 values.product_image = file
               }}
             >
-              <label htmlFor="image_upload">
-                Add a product image
-              </label>
+              <label htmlFor="image_upload">Add a product image</label>
               <S.ImgInput
                 type="file"
                 id="image_upload"

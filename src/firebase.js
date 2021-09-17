@@ -33,6 +33,7 @@ const functionIds = {
   createAccount: "createAccount",
   getWallet: "getWallet",
   initCheckout: "initCheckout",
+  completeCheckout: "completeCheckout",
 }
 /**
  * firestore collection/sub-collection Ids

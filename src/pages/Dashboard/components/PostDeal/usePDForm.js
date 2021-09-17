@@ -51,7 +51,6 @@ const usePDForm = (validate) => {
           "products",
           product.product_id
         )
-        console.log(product)
         await db
           .collection(fireIds.products)
           .doc(product.product_id)

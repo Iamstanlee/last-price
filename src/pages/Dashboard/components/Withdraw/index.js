@@ -1,4 +1,4 @@
-import { lazy } from "react"
+import { lazy, useEffect, useState } from "react"
 import { Col } from "antd"
 import * as S from "./styles"
 
@@ -9,10 +9,16 @@ const Input = lazy(() => import("../../../../common/Input"))
 const Button = lazy(() => import("../../../../common/Button"))
 const Select = lazy(() => import("../../../../common/Select"))
 
+const Withdraw = () => {
+  const {
+    values,
+    errors,
+    loading,
+    handleChange,
+    handleSubmit,
+  } = useWithdrawForm(validate)
 
-const Withdraw = (props) => {
-  const { values, errors, loading, handleChange, handleSubmit } =
-    useWithdrawForm(validate)
+  const [banks, setBanks] = useState(null)
 
   const ValidationType = ({ type }) => {
     const ErrorMessage = errors[type]
@@ -24,6 +30,10 @@ const Withdraw = (props) => {
       <S.Span />
     )
   }
+
+  useEffect(() => {
+
+  })
 
   return (
     <S.WithdrawContainer>
@@ -64,7 +74,7 @@ const Withdraw = (props) => {
               <option value="Access Bank">Wema Bank</option>
               <option value="Access Bank">Zenith Bank</option>
             </Select>
-            <ValidationType type="account_number" />
+            <ValidationType type="bank_name" />
           </S.InputContainer>
           <S.ButtonContainer>
             <Button name="submit" type="submit" width="100%">

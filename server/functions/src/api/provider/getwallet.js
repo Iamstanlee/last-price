@@ -55,6 +55,7 @@ class GetWalletProvider {
         updated_at: thisInstant,
       },
     }
+
     try {
       const res = await post(
         `${apiUrl}/wallets/transfers/bank`,
@@ -99,15 +100,8 @@ class GetWalletProvider {
   }
 
   async fundViaBankTransfer(walletId) {
-    // const date = new Date()
-    // const thisInstant = date.toISOString()
     const transaction = {
       wallet_id: walletId,
-      //   meta_data: {
-      //     transaction_id: data.transaction_id || getTransactionId(),
-      //     created_at: data.created_at || thisInstant,
-      //     updated_at: data.updated_at || thisInstant,
-      //   },
     }
     try {
       const res = await post(
@@ -115,8 +109,8 @@ class GetWalletProvider {
         transaction,
         headers
       )
-      if (res.success && res.data.success) {
-        return { success: true, data: res.data.data }
+      if (res.success) {
+        return { success: true, data: res.data }
       }
       return { success: false, message: res.message || "Something went wrong" }
     } catch (err) {

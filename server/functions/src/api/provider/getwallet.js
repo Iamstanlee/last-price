@@ -4,8 +4,8 @@ const { getTransactionId } = require("../../utils")
 
 const apiKey =
   process.env === "production"
-    ? functions.config().getwallet.prod
-    : functions.config().getwallet.dev
+    ? functions.config().getwallets.prod
+    : functions.config().getwallets.dev
 const apiUrl = "https://api.getwallets.co/v1"
 const headers = {
   Accept: "application/json",

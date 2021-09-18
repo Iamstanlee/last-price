@@ -83,7 +83,7 @@ const PostDeal = () => {
             <Input
               id="Product name"
               name="product_name"
-              placeholder="Rolex watch"
+              placeholder=""
               value={values.product_name}
               onChange={handleChange}
             />

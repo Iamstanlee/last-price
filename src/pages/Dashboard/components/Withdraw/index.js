@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from "react"
+import { lazy, useEffect } from "react"
 import { Col, Select } from "antd"
 import * as S from "./styles"
 

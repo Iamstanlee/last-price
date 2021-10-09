@@ -32,8 +32,5 @@ const get = async (endpoint, headers) => await sendHttpRequest("GET", endpoint, 
 const post = async (endpoint, data, headers) =>
 	await sendHttpRequest("POST", endpoint, data, headers);
 
-const throwError = (err, code) => {
-	throw new functions.https.HttpsError(code || "internal", err.message || err.toString());
-};
 
-module.exports = { get, post, db, messaging, fieldValue, throwError };
+module.exports = { get, post, db, messaging, fieldValue };

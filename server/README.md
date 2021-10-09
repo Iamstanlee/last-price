@@ -1,10 +1,11 @@
-# Cloud functions for kivi apps
+# Cloud functions for lastprice
 
 #### requirements
 
 - yarn (or npm)
 - nodejs (preferably 14)
 - firebase-cli, see `https://firebase.google.com/docs/cli`
+- getwallets apikey, see `https://getwallets.co/`
 
 #### run
 
@@ -15,4 +16,4 @@
 
 # Notes
 
-- all number variables related to payments, transactions, balance etc should be in kobo
+- all money variables(payments, transactions, balance) etc should be in kobo

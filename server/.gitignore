@@ -9,7 +9,7 @@ firebase-debug.*.log*
 
 # Firebase cache
 .firebase/
-firebase-export-*/firestore_export/
+firebase-export-*/
 
 # Firebase config
 
